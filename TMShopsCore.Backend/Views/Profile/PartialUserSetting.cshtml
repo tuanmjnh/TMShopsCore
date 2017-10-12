@@ -1,0 +1,64 @@
+﻿<div class="modal" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="ModalEdit" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalEditLabel" tm-lang="Users.userSetting">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModalEdit"></div>
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Global.detailsMain"></h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Salt" tm-lang="Users.oldPassword"></label>
+                                <div class="col-10">
+                                    <input id="Salt" name="Salt" type="password" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Users.oldPassword" title="Users.oldPassword" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError" data-val-length-min="6" data-val-length="Users.msgErrorPasswordRange">
+                                    <span data-valmsg-for="Salt" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Password" tm-lang="Users.newPassword"></label>
+                                <div class="col-10">
+                                    <input id="Password" name="Password" type="password" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Users.newPassword" title="Users.newPassword" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError" data-val-length-min="6" data-val-length="Users.msgErrorPasswordRange">
+                                    <span data-valmsg-for="Password" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="rePassword" tm-lang="Users.rePassword"></label>
+                                <div class="col-10">
+                                    <input id="rePassword" name="rePassword" type="password" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Users.rePassword" title="Users.rePassword" data-placement="right" data-val="true"
+                                           data-val-equalto-other="*.Password" data-val-equalto="Users.msgErrorPasswordRe" data-val-required="Global.msgInputRequiredError">
+                                    <span data-valmsg-for="rePassword" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"><label class="text-warning" tm-lang="Global.msgWarningRequired"></label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" tm-lang="Global.cancel">Close</button>
+                <button id="btnUpdate" type="submit" class="btn btn-primary" tm-lang="Global.update"></button>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/tinymce/tinymce.min.js"></script>
+    <script src="~/js/site.min.js"></script>
+    <script>
+        $(function () { formGet({ url: $url + '/' + $('[name="id"]').val(), form: formEdit }) })
+        removeBackdrop(ModalEdit);
+        $(formEdit).FormPost({ type: 'PUT', url: $area + 'api/UsersAPI/UserSetting', resetForm: false });
+    </script>
+</div>

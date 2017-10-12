@@ -1,0 +1,364 @@
+﻿body {
+    /*padding-top: 50px;*/
+    padding-bottom: 20px;
+    padding-top: 5rem;
+    font-size: 0.9rem !important;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+/*Modal*/
+@media (min-width: 1300px) {
+    .modal-lg {
+        max-width: 1000px;
+    }
+}
+
+/*CSS3 Loader*/
+.css3Loader {
+    animation: css3LoaderRotate 2s infinite;
+    height: 80px;
+    width: 80px;
+    position: fixed;
+    z-index: 1052;
+    top: 50%;
+    left: 50%;
+}
+
+    .css3Loader:before,
+    .css3Loader:after {
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 40px;
+        width: 40px;
+    }
+
+    .css3Loader:before {
+        animation: css3LoaderBall1 1s infinite;
+        background-color: #cb2025;
+        box-shadow: 30px 0 0 #f8b334;
+        margin-bottom: 10px;
+    }
+
+    .css3Loader:after {
+        animation: css3LoaderBall2 1s infinite;
+        background-color: #00a096;
+        box-shadow: 30px 0 0 #97bf0d;
+    }
+
+@keyframes css3LoaderRotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(0.8);
+        -moz-transform: rotate(0deg) scale(0.8);
+    }
+
+    50% {
+        -webkit-transform: rotate(360deg) scale(1.2);
+        -moz-transform: rotate(360deg) scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: rotate(720deg) scale(0.8);
+        -moz-transform: rotate(720deg) scale(0.8);
+    }
+}
+
+@keyframes css3LoaderBall1 {
+    0% {
+        box-shadow: 30px 0 0 #f8b334;
+    }
+
+    50% {
+        box-shadow: 0 0 0 #f8b334;
+        margin-bottom: 0;
+        -webkit-transform: translate(15px,15px);
+        -moz-transform: translate(15px, 15px);
+    }
+
+    100% {
+        box-shadow: 30px 0 0 #f8b334;
+        margin-bottom: 10px;
+    }
+}
+
+@keyframes css3LoaderBall2 {
+    0% {
+        box-shadow: 30px 0 0 #97bf0d;
+    }
+
+    50% {
+        box-shadow: 0 0 0 #97bf0d;
+        margin-top: -40px;
+        -webkit-transform: translate(15px,15px);
+        -moz-transform: translate(15px, 15px);
+    }
+
+    100% {
+        box-shadow: 30px 0 0 #97bf0d;
+        margin-top: 0;
+    }
+}
+
+/*h1 {
+    font-size: 35px
+}
+
+h2 {
+    font-size: 30px
+}
+
+h3 {
+    font-size: 25px
+}
+
+h3 {
+    font-size: 20px
+}
+
+h4 {
+    font-size: 14px
+}*/
+.mb10 {
+    margin-bottom: 10px
+}
+
+.pr5 {
+    padding-right: 5px
+}
+
+.pl5 {
+    padding-left: 5px
+}
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+.required::after {
+    content: " *";
+    color: #f00;
+    position: absolute;
+    right: 0;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+a.btn {
+    color: #fff !important;
+    cursor: default;
+}
+
+.btn {
+    font-size: 13px !important;
+    border-radius: 0px !important;
+}
+
+    .btn:focus {
+        box-shadow: initial !important;
+    }
+
+.tag {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 6px;
+    margin-right: 8px;
+}
+
+    .tag:last-child {
+        margin-right:0!important;
+    }
+
+    .tag i {
+        font-style: normal;
+        font-weight: bold;
+        position: relative;
+        color: #fff;
+        background-color: #d9534f;
+        padding: 5px;
+        cursor: pointer;
+        top: -1px;
+    }
+
+.tag-success span {
+    color: #fff;
+    border: 1px solid #5cb85c;
+    background-color: #5cb85c;
+    padding: 1px 6px 1px 3px;
+}
+
+.form-control, .input-group-addon {
+    border-radius: 0px !important;
+}
+
+.form-group-border {
+    margin-bottom: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+    .form-group-border:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+    }
+/**/
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #eee;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+}
+
+.bd-callout-info {
+    border-left-color: #5bc0de;
+}
+
+.bd-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+.bd-callout-danger {
+    border-left-color: #d9534f;
+}
+
+.bd-callout-primary {
+    border-left-color: #025aa5;
+}
+
+.bd-callout-success {
+    border-left-color: #5cb85c;
+}
+/**/
+.navbar-nav .dropdown-menu {
+    margin: 0.5rem 0 0;
+}
+
+.navbar-right .dropdown-menu {
+    left: -92px;
+}
+
+.divider {
+    background-color: #ccc;
+    padding: .5px;
+    margin: 8px 0;
+}
+
+/**/
+.col-chk {
+    width: 38px;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+    vertical-align: middle !important
+}
+
+    .col-chk label {
+        vertical-align: middle;
+        margin: auto;
+        padding: 6px 12px;
+    }
+
+        .col-chk label:hover, .col-chk [type="checkbox"]:hover {
+            cursor: pointer;
+        }
+
+.form-check {
+    top: 3.9px;
+}
+
+    .form-check label {
+        padding-right: 15px;
+    }
+
+        .form-check label :last-child {
+            padding-right: 0;
+        }
+/**/
+.list-pd div {
+    padding-right: 5px
+}
+
+    .list-pd div:last-child {
+        padding-right: 0px
+    }
+
+.scroll-list-horizontal {
+    overflow-x: scroll;
+    max-width: 500px;
+}
+
+.scroll-list-vertical {
+    overflow-y: scroll;
+    max-height: 200px;
+}
+/*bootstrap-table*/
+.fixed-table-toolbar .columns {
+    line-height: initial !important;
+}
+
+.fixed-table-toolbar .search input[type="text"], .toolbar-custom input[type="text"] {
+    line-height: initial !important;
+    padding: 7px 10px !important;
+}
+
+.toolbar-custom .input-group {
+    width: initial
+}
+/*Card*/
+.card .card-header .card-title {
+    margin-bottom: 0;
+}
+
+.pagination {
+    border-radius: 0;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+}
+
+    .dropdown-menu .dropdown-item:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown-menu .dropdown-item:active {
+        background-color: #0275d8;
+    }
+
+.page-list .dropdown-menu {
+    min-width: initial;
+}
+
+.page-list .dropdown-item {
+    padding: 3px 22.5px;
+}
+
+/*bootstrap-datetimepicker*/

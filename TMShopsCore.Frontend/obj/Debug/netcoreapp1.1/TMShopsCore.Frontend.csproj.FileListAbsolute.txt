@@ -1,0 +1,15 @@
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMShopsCore.Frontend.deps.json
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMShopsCore.Frontend.runtimeconfig.json
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMShopsCore.Frontend.runtimeconfig.dev.json
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMShopsCore.Frontend.dll
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMShopsCore.Frontend.pdb
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\AccessDataEtity.dll
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMCore.dll
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMShopsCore.Models.dll
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMCore.pdb
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\AccessDataEtity.pdb
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\bin\Debug\netcoreapp1.1\TMShopsCore.Models.pdb
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\obj\Debug\netcoreapp1.1\TMShopsCore.Frontend.csprojResolveAssemblyReference.cache
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\obj\Debug\netcoreapp1.1\TMShopsCore.Frontend.AssemblyInfo.cs
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\obj\Debug\netcoreapp1.1\TMShopsCore.Frontend.dll
+D:\Appliations\TMShopsCore\TMShopsCore.Frontend\obj\Debug\netcoreapp1.1\TMShopsCore.Frontend.pdb

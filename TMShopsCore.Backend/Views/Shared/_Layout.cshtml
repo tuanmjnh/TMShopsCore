@@ -1,0 +1,147 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title tm-lang-segment="CMS.title"></title> <!--@ViewData["Title"] - TMShopsCore-->
+
+    <environment names="Development">
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />*@
+        <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    </environment>
+    @RenderSection("CSS", required: false)
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a asp-controller="Home" asp-action="Index" class="navbar-brand">TMShopsCore</a>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a asp-controller="Home" asp-action="Index" class="nav-link">Báo Cáo</a></li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sản phẩm</a>
+                    <div class="dropdown-menu">
+                        <a asp-controller="Product" asp-action="Index" class="dropdown-item">Danh sách sản phẩm</a>
+                        <a asp-controller="Product" asp-action="Create" class="dropdown-item">Tạo mới sản phẩm</a>
+                        <a asp-controller="Category" asp-action="Index" class="dropdown-item">Danh sách danh mục</a>
+                        <a asp-controller="Category" asp-action="Create" class="dropdown-item">Tạo mới danh mục</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
+                    <div class="dropdown-menu">
+                        <a asp-controller="Users" asp-action="Index" class="dropdown-item">Danh sách</a>
+                        <a asp-controller="Roles" asp-action="Index" class="dropdown-item">Nhóm Quyền</a>
+                        <a asp-controller="Users" asp-action="Index" class="dropdown-item">Phân quyền</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modules</a>
+                    <div class="dropdown-menu">
+                        <a asp-controller="Modules" asp-action="Index" class="dropdown-item">Danh sách</a>
+                        <a asp-controller="Modules" asp-action="Create" class="dropdown-item">Thêm mới</a>
+                    </div>
+                </li>
+            </ul>
+            @if (TMShopsCore.Common.Auth.isAuth)
+            {
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item dropdown account">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span id="lblAccountDisplay">@(TMShopsCore.Common.Auth.AuthUser.FullName != null && !String.IsNullOrWhiteSpace(TMShopsCore.Common.Auth.AuthUser.FullName) ? TMShopsCore.Common.Auth.AuthUser.FullName : TMShopsCore.Common.Auth.AuthUser.Username)</span>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile" tm-lang="Users.profile"></a>
+                            <a href="#" class="dropdown-item changePassword" tm-lang="Users.changePassword"></a>
+                            <a href="#" class="dropdown-item userSetting" tm-lang="Users.userSetting"></a>
+                            @*<a asp-controller="Profile" asp-action="Index" class="dropdown-item">Thông tin tài khoản</a>
+                                <a asp-controller="Profile" asp-action="ChangePassword" class="dropdown-item">Đổi mật khẩu</a>
+                                <a asp-controller="Profile" asp-action="Setting" class="dropdown-item">Cài đặt</a>*@
+                            <div role="separator" class="divider"></div>
+                            <a asp-controller="Auth" asp-action="Logout" class="dropdown-item" tm-lang="Auth.logout"></a>
+                        </div>
+
+                    </li>
+                </ul>
+            }
+        </div>
+    </nav>
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">TMShopsCore</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                        <li><a asp-controller="Home" asp-action="Template">Template</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+    <div class="container container-fluid">
+        <!--<h3>@ViewData["ContentTitle"]</h3>-->
+        @RenderSection("TitlePage", required: false)
+        @Html.Partial("Message")
+        <div id="TMAlert"></div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2017 - TMShopsCore</p>
+        </footer>
+    </div>
+
+    @Html.Partial("PartialModalComfirm")
+    <environment names="Development">
+        <script src="~/js/jquery.min.js"></script>
+        <script src="~/js/tether.min.js"></script>
+        <script src="~/js/bootstrap.min.js"></script>
+        <script src="~/plugins/moment-with-locales.min.js"></script>
+        @*<script src="~/js/jquery.validate.min.js"></script>
+            <script src="~/js/jquery.validate.unobtrusive.min.js"></script>*@
+        @*<script src="~/js/tinymce/tinymce.min.js"></script>*@
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+    @RenderSection("PartialList", required: false)
+    <form id="FormCreate" asp-action="Create" enctype="multipart/form-data"></form>
+    <form id="FormEdit" asp-action="Edit" enctype="multipart/form-data"></form>
+</body>
+</html>

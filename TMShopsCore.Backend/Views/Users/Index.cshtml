@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TMShopsCore.Models.Users>
+
+@{
+    //ViewData["Title"] = TM.Helper.Language.Current.title;
+    //ViewData["ContentTitle"] = TM.Helper.Language.Current.titleList;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="form-inline pull-right mb10 pl5">
+    <div class="pull-right">
+        <div class="btn-group pull-right" role="group" aria-label="Action Button List">
+            <button type="button" id="indexBtnAdd" class="btn btn-primary isTooltip" tm-lang-attr="true" title="Global.create" data-toggle="modal" data-target="#ModalCreate"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnDeleteRecover" class="btn btn-danger isTooltip" tm-lang-attr="true" title="Global.delete"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnDeleteForever" class="btn btn-danger isTooltip" tm-lang-attr="true" title="Global.deleteForever" style="display:none"><i class="fa fa-ban" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnSetRoles" class="btn btn-success isTooltip" tm-lang-attr="true" title="Global.setRoles"><i class="fa fa-key" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnUse" class="btn btn-secondary isTooltip" tm-lang-attr="true" title="Global.use"><i class="fa fa-th-large" aria-hidden="true"></i></button>
+            <button type="button" id="indexBtnTrash" class="btn btn-secondary isTooltip" tm-lang-attr="true" title="Global.locked"><i class="fa fa-lock" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    @*<div>
+            <select class="form-control">
+                <option value="">Export Basic</option>
+                <option value="all">Export All</option>
+                <option value="selected">Export Selected</option>
+            </select>
+        </div>*@
+</div>
+<div class="pull-right toolbar-custom">
+    <div class="input-group mb10 pull-right pl5">
+        <input type="text" name="dateEnd" id="dateEnd" class="form-control isTooltip" tm-lang-attr="true" placeholder="Global.dateEnd" title="Global.dateEnd" data-placement="top" />
+        <span class="input-group-addon fa fa-calendar" aria-hidden="true"></span>
+    </div>
+    <div class="input-group mb10 pull-right pl5">
+        <input type="text" name="dateStart" id="dateStart" class="form-control isTooltip" tm-lang-attr="true" placeholder="Global.dateStart" title="Global.dateStart" data-placement="top" />
+        <span class="input-group-addon fa fa-calendar" aria-hidden="true"></span>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div id="toolbar">
+
+</div>
+<table class="table" id="table"
+       data-toolbar="#toolbar"
+       data-click-to-select="false"
+       data-search="true"
+       data-show-refresh="true"
+       data-show-toggle="true"
+       data-show-columns="true"
+       data-show-export="true"
+       data-detail-view="true"
+       data-detail-formatter="detailFormatter"
+       data-minimum-count-columns="2"
+       data-show-pagination-switch="true"
+       data-pagination="true"
+       data-id-field="id"
+       data-page-list="[10, 25, 50, 100, 200, 500 ALL]"
+       data-show-footer="false"
+       data-side-pagination="server"
+       data-response-handler="responseHandler"
+       data-query-params="queryParams"
+       data-url="api/UsersAPI"
+       data-url-create="Insert"
+       data-url-edit="Update">
+    <thead>
+        <tr>
+            <th data-events="chkEvents" data-field="state" data-checkbox="true" data-valign="middle"></th>
+            <th data-field="username" data-sortable="true" data-editable="true" data-valign="middle" tm-lang="Users.username"></th>
+            <th data-field="fullName" data-sortable="true" data-editable="true" data-valign="middle" tm-lang="Users.fullname"></th>
+            <th data-events="cmdEvents" data-formatter="resetPassFormatter" data-align="center" data-valign="middle" data-width="50">#</th>
+            <th data-events="cmdEvents" data-formatter="cmdFormatter" data-align="center" data-valign="middle" data-width="50">#</th>
+        </tr>
+    </thead>
+</table>
+@section PartialList {
+    @*<script src="~/plugins/bootstrap-table/bootstrap-table.js"></script>
+        <script src="~/plugins/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+        <script src="~/plugins/bootstrap-table/extensions/export/tableExport.js"></script>
+        <script src="~/plugins/bootstrap-table/extensions/editable/bootstrap-table-editable.js"></script>
+        script src="~/plugins/bootstrap-table/extensions/editable/bootstrap-editable.js"></script>*@
+    @*<script src="~/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>*@
+    @*<script src="~/plugins/moment-with-locales.min.js"></script>*@
+    <script src="~/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/js/PartialList.min.js"></script>
+}

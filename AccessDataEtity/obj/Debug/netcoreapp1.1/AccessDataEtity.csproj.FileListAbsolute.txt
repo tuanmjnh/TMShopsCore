@@ -1,0 +1,11 @@
+D:\Appliations\TMShopsCore\AccessDataEtity\bin\Debug\netcoreapp1.1\AccessDataEtity.deps.json
+D:\Appliations\TMShopsCore\AccessDataEtity\obj\Debug\netcoreapp1.1\AccessDataEtity.csprojResolveAssemblyReference.cache
+D:\Appliations\TMShopsCore\AccessDataEtity\obj\Debug\netcoreapp1.1\AccessDataEtity.AssemblyInfo.cs
+D:\Appliations\TMShopsCore\AccessDataEtity\bin\Debug\netcoreapp1.1\AccessDataEtity.dll
+D:\Appliations\TMShopsCore\AccessDataEtity\bin\Debug\netcoreapp1.1\AccessDataEtity.pdb
+D:\Appliations\TMShopsCore\AccessDataEtity\bin\Debug\netcoreapp1.1\TMShopsCore.Models.dll
+D:\Appliations\TMShopsCore\AccessDataEtity\bin\Debug\netcoreapp1.1\TMShopsCore.Models.pdb
+D:\Appliations\TMShopsCore\AccessDataEtity\obj\Debug\netcoreapp1.1\AccessDataEtity.dll
+D:\Appliations\TMShopsCore\AccessDataEtity\obj\Debug\netcoreapp1.1\AccessDataEtity.pdb
+D:\Appliations\TMShopsCore\AccessDataEtity\bin\Debug\netcoreapp1.1\TMCore.dll
+D:\Appliations\TMShopsCore\AccessDataEtity\bin\Debug\netcoreapp1.1\TMCore.pdb

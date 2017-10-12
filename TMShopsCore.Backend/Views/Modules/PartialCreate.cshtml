@@ -1,0 +1,136 @@
+﻿<div class="modal" id="ModalCreate" tabindex="-1" role="dialog" aria-labelledby="ModalAdd" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalCreateLabel" tm-lang="Modules.titleCreate">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModal"></div>
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Global.detailsMain"></h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="AppKey" tm-lang="Modules.AppKey"></label>
+                                <div class="col-10">
+                                    <input id="AppKey" name="AppKey" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Modules.AppKey" title="Modules.AppKey" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError"
+                                           data-val-remote-additionalfields="*.AppKey" data-val-remote-url="@(TM.Helper.Url.Base+"api/ModulesAPI/DataExistsCheck")" data-val-remote="Modules.msgExistError">
+                                    <span data-valmsg-for="AppKey" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Name" tm-lang="Modules.Name"></label>
+                                <div class="col-10">
+                                    <input id="Name" name="Name" type="text" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Modules.Name" title="Modules.Name" data-placement="right" data-val="true" data-val-required="Global.msgInputRequiredError">
+                                    <span data-valmsg-for="Name" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Url" tm-lang="Modules.Url"></label>
+                                <div class="col-10">
+                                    <input id="Url" name="Url" class="form-control isTooltip" tm-lang-attr="true"
+                                           placeholder="Modules.Url" title="Modules.Url" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError">
+                                    <span data-valmsg-for="Url" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Icon" tm-lang="Global.Icon"></label>
+                                <div class="col-5">
+                                    <input id="Icon" name="Icon" class="form-control isTooltip" tm-lang-attr="true" placeholder="Global.Icon" title="Global.Icon" data-placement="right">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Orders" tm-lang="Global.orders"></label>
+                                <div class="col-3">
+                                    <input id="Orders" name="Orders" type="number" value="0" class="form-control isTooltip" data-placement="right"
+                                           tm-lang-attr="true" placeholder="Global.orders" title="Global.orders"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError" data-val-number="Global.msgInputNumberError">
+                                    <span data-valmsg-for="Orders" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                                <label class="col-2 col-form-label" for="Flag">Trạng thái</label>
+                                <div class="col-5">
+                                    <div class="btn-group flag" data-toggle="buttons">
+                                        <label class="btn btn-warning">
+                                            <span tm-lang="Global.notUse"></span>
+                                            <input type="radio" id="Flag" name="Flag" value="0" autocomplete="off">
+                                        </label>
+                                        <label class="btn btn-warning active">
+                                            <span tm-lang="Global.use"></span>
+                                            <input type="radio" id="Flag" name="Flag" value="1" autocomplete="off" checked>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="InputAction" tm-lang="Modules.Action"></label>
+                                <div class="col-5">
+                                    <div id="ActionInput" class="input-group">
+                                        <input name="TagTxt" class="form-control" data-tag-txt="TagTxt" tm-lang-attr="true" placeholder="Modules.Action" title="Modules.Action" data-placement="right">
+                                        <span class="input-group-addon" data-tag-button="TagButton"><i class="fa fa-plus"></i></span>
+                                    </div>
+                                    <span data-valmsg-for="InputAction" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Action" tm-lang="Modules.ActionList"></label>
+                                <div class="col-10">
+                                    <div id="TagList">
+                                        @*<div class="tag tag-success"><span>askfjhnaskfj</span><i class="fa fa-times"></i></div>*@
+
+                                        @*<label class="form-check-label">
+                                                <input type="checkbox" name="Action[]" class="form-check-input" value="1" checked data-val="true" data-val-checkbox="Global.msgCheckboxRequiredError" tm-lang-attr="true"> <span tm-lang="Global.select"></span>
+                                            </label>
+                                            <label class="form-check-label">
+                                                <input type="checkbox" name="Action[]" class="form-check-input" value="2" checked data-val="true" data-val-checkbox="Global.msgCheckboxRequiredError" tm-lang-attr="true"> <span tm-lang="Global.create"></span>
+                                            </label>
+                                            <label class="form-check-label">
+                                                <input type="checkbox" name="Action[]" class="form-check-input" value="3" checked data-val="true" data-val-checkbox="Global.msgCheckboxRequiredError" tm-lang-attr="true"> <span tm-lang="Global.edit"></span>
+                                            </label>
+                                            <label class="form-check-label">
+                                                <input type="checkbox" name="Action[]" class="form-check-input" value="4" checked data-val="true" data-val-checkbox="Global.msgCheckboxRequiredError" tm-lang-attr="true"> <span tm-lang="Global.delete"></span>
+                                            </label>*@
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <span data-valmsg-for="Action[]" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"><label class="text-warning" tm-lang="Global.msgWarningRequired"></label></div>
+                    </div>
+                    <p></p>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Global.details"></h5>
+                        </div>
+                        <div class="card-block">
+                            <textarea id="Details" name="Details" class="tinymce"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" tm-lang="Global.cancel">Close</button>
+                <button id="btnCreate" type="submit" class="btn btn-primary" tm-lang="Global.create"></button>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/tinymce/tinymce.min.js"></script>
+    <script src="~/js/site.min.js"></script>
+    <script src="~/js/PartialCreate.min.js"></script>
+    <script>
+        $('#ActionInput').TMTag({ HiddenName: 'Action' });
+        removeBackdrop(ModalCreate);
+        $(formCreate).FormPost({ url: $url, arrayData: 'Action', done: function () { $($table).bootstrapTable('refresh') } });
+    </script>
+</div>

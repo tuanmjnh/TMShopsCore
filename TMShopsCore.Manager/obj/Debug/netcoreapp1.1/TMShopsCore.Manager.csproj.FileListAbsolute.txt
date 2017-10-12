@@ -1,0 +1,4 @@
+D:\Appliations\TMShopsCore\TMShopsCore.Manager\obj\Debug\netcoreapp1.1\TMShopsCore.Manager.csprojResolveAssemblyReference.cache
+D:\Appliations\TMShopsCore\TMShopsCore.Manager\obj\Debug\netcoreapp1.1\TMShopsCore.Manager.csproj.CoreCompileInputs.cache
+D:\Appliations\TMShopsCore\TMShopsCore.Manager\obj\Debug\netcoreapp1.1\TMShopsCore.Manager.AssemblyInfoInputs.cache
+D:\Appliations\TMShopsCore\TMShopsCore.Manager\obj\Debug\netcoreapp1.1\TMShopsCore.Manager.AssemblyInfo.cs

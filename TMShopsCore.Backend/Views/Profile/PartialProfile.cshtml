@@ -1,0 +1,99 @@
+﻿<div class="modal" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="ModalEdit" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalEditLabel" tm-lang="Users.profile">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModalEdit"></div>
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Users.updateInformation"></h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="FullName" tm-lang="Users.fullname"></label>
+                                <div class="col-10">
+                                    <input id="FullName" name="FullName" aria-describedby="FullName" class="form-control isTooltip" data-placement="right"
+                                           tm-lang-attr="true" placeholder="Users.fullname" title="Users.fullname"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError">
+                                    @*<small asp-for="FullName" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+                                    <span data-valmsg-for="FullName" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Mobile" tm-lang="Users.mobile"></label>
+                                <div class="col-10">
+                                    <input id="Mobile" name="Mobile" aria-describedby="Mobile" class="form-control isTooltip" data-placement="right"
+                                           tm-lang-attr="true" placeholder="Users.mobile" title="Users.mobile"
+                                           data-val="true" data-val-number="Global.msgInputNumberError">
+                                    <span data-valmsg-for="Mobile" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Email" tm-lang="Users.email"></label>
+                                <div class="col-10">
+                                    <input id="Email" name="Email" aria-describedby="Email" class="form-control isTooltip" data-placement="right"
+                                           tm-lang-attr="true" placeholder="Users.email" title="Users.email"
+                                           data-val="true" data-val-email="Global.msgInputEmailError">
+                                    <span data-valmsg-for="Email" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Address" tm-lang="Users.address"></label>
+                                <div class="col-10">
+                                    <input id="Address" name="Address" aria-describedby="Address" class="form-control isTooltip" data-placement="right"
+                                           tm-lang-attr="true" placeholder="Users.address" title="Users.address"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError">
+                                    <span data-valmsg-for="Address" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"><label class="text-warning" tm-lang="Global.msgWarningRequired"></label></div>
+                    </div>
+                    <p></p>
+                    <div class="card">
+                        <div class="card-header">
+                            @*<h5 class="card-title pull-left" tm-lang="Users.images"></h5>*@
+                            <label class="btn btn-warning" for="fileInput">
+                                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                <span tm-lang="Users.images"></span>
+                                <input type="file" id="fileInput" name="fileInput" style="display:none" />
+                            </label>
+                        </div>
+                        <div class="card-block">
+                            <div class="form-group row">
+                                <div class="col-12" tm-read-img="user"><img tm-form="images" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Global.details"></h5>
+                        </div>
+                        <div class="card-block">
+                            <textarea id="Details" name="Details" class="tinymce"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" tm-lang="Global.cancel">Close</button>
+                <button id="btnUpdate" type="submit" class="btn btn-primary" tm-lang="Global.update"></button>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/tinymce/tinymce.min.js"></script>
+    <script src="~/js/site.min.js"></script>
+    <script>
+        $(function () { formGet({ url: $url + '/' + $('[name="id"]').val() }) })
+        removeBackdrop(ModalEdit);
+        $(formEdit).FormPost({ type: 'PUT', url: $area + 'api/UsersAPI/Profile', resetForm: false, done: function () { $('#lblAccountDisplay').html($('#FullName').val()) } });
+    </script>
+</div>

@@ -1,0 +1,40 @@
+dotnet new --install Microsoft.AspNetCore.SpaTemplates::*
+dotnet new angular
+dotnet restore
+npm install
+npm install -g webpack
+If you’re using PowerShell in Windows, execute $Env:ASPNETCORE_ENVIRONMENT = "Development"
+If you’re using cmd.exe in Windows, execute setx ASPNETCORE_ENVIRONMENT "Development", and then restart your command prompt to make the change take effect
+If you’re using Mac/Linux, execute export ASPNETCORE_ENVIRONMENT=Development
+dotnet run
+
+
+//
+dotnet restore
+
+//
+Add-Migration Initial
+Update-Database
+
+//
+//Scaffold-Dbcontext "Server=.;Database=TMShops;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.Sqlserver -OutputDir Models
+dnx ef dbcontext scaffold "Server=.;Database=TMShops;Trusted_Connection=True;" EntityFramework.MicrosoftSqlServer --outputDir Models
+
+Scaffold-DbContext -Connection "Server=(local);Database=TMShops;Integrated Security=True;Trusted_Connection=True;" -Provider Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -context TMShopsContext -Project TMShopsCore -force
+
+//Update webpack
+webpack -d
+webpack --config webpack.config.vendor.js
+
+//Extensions
+npm install --save ng2-bootstrap
+//npm install --save ng2-bootstrap bootstrap@next 
+//npm install ngx-bootstrap bootstrap@next --save
+npm install tether --save
+npm install --save font-awesome
+npm install --save ng2-bootstrap-modal
+npm install --save webpack-hot-middleware
+npm install --save webpack-merge
+npm install --save awesome-typescript-loader
+npm install --save angular2-template-loader
+npm install --save-dev typescript

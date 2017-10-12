@@ -1,0 +1,72 @@
+@model TMShopsCore.Models.Settings
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <input type="hidden" asp-for="Id" />
+        <dt>
+            @Html.DisplayNameFor(model => model.ModuleKey)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModuleKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubKey)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubValue)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubValue)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Desc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Desc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Orders)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Orders)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Flag)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Flag)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Extras)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Extras)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

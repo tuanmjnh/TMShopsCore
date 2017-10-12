@@ -1,0 +1,118 @@
+﻿<div class="modal" id="ModalCreate" tabindex="-1" role="dialog" aria-labelledby="ModalAdd" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalCreateLabel" tm-lang="Roles.titleCreate">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModal"></div>
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Global.detailsMain"></h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="AppKey" tm-lang="Roles.AppKey"></label>
+                                <div class="col-10">
+                                    <input id="AppKey" name="AppKey" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Roles.AppKey" title="Roles.AppKey" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError"
+                                           data-val-remote-additionalfields="*.AppKey" data-val-remote-url="@(TM.Helper.Url.Base+"api/RolesAPI/DataExistsCheck")" data-val-remote="Modules.msgExistError">
+                                    <span data-valmsg-for="AppKey" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Name" tm-lang="Roles.Name"></label>
+                                <div class="col-10">
+                                    <input id="Name" name="Name" type="text" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Roles.Name" title="Roles.Name" data-placement="right" data-val="true" data-val-required="Global.msgInputRequiredError">
+                                    <span data-valmsg-for="Name" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label class="col-2 col-form-label" for="Icon" tm-lang="Global.Icon"></label>
+                                <div class="col-5">
+                                    <input id="Icon" name="Icon" class="form-control isTooltip" tm-lang-attr="true" placeholder="Global.Icon" title="Global.Icon" data-placement="right">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Orders" tm-lang="Global.orders"></label>
+                                <div class="col-3">
+                                    <input id="Orders" name="Orders" type="number" value="0" class="form-control isTooltip" data-placement="right"
+                                           tm-lang-attr="true" placeholder="Global.orders" title="Global.orders"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError" data-val-number="Global.msgInputNumberError">
+                                    <span data-valmsg-for="Orders" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                                <label class="col-2 col-form-label" for="Flag">Trạng thái</label>
+                                <div class="col-5">
+                                    <div class="btn-group flag" data-toggle="buttons">
+                                        <label class="btn btn-warning">
+                                            <span tm-lang="Global.notUse"></span>
+                                            <input type="radio" id="Flag" name="Flag" value="0" autocomplete="off">
+                                        </label>
+                                        <label class="btn btn-warning active">
+                                            <span tm-lang="Global.use"></span>
+                                            <input type="radio" id="Flag" name="Flag" value="1" autocomplete="off" checked>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Icon" tm-lang="Global.details"></label>
+                                <div class="col-10">
+                                    <textarea id="Details" name="Details" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"><label class="text-warning" tm-lang="Global.msgWarningRequired"></label></div>
+                    </div>
+                    <p></p>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Roles.modules"></h5>
+                        </div>
+                        <div id="ModulesList" class="card-block scroll-list-vertical"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" tm-lang="Global.cancel">Close</button>
+                <button id="btnCreate" type="submit" class="btn btn-primary" tm-lang="Global.create"></button>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/tinymce/tinymce.min.js"></script>
+    <script src="~/js/site.min.js"></script>
+    <script>
+        $(function () {
+            formGet({
+                url: $url + "/INSERT", form: formEdit, success: function (d) {
+                    if (d.modules) {
+                        var obj = d.modules;
+                        var html = '';
+                        for (var i = 0; i < obj.length; i++) {
+                            html += '<div class="form-group row form-group-border">' +
+                                '<label class="col-md-3 col-form-label">' + obj[i].name + '</label>' +
+                                '<div class="col-md-9">' +
+                                '<div class="form-check form-check-inline">' +
+                                '<label class="form-check-label"><input type="checkbox" name="Modules[]" class="form-check-input" value="' + obj[i].appKey.toUpperCase() + '.SELECT" data-val="true" data-val-checkbox="Global.msgCheckboxRequiredError" tm-lang-attr="true"> ' + TMLanguage('Global.select') + '</label>' +
+                                '<label class="form-check-label"><input type="checkbox" name="Modules[]" class="form-check-input" value="' + obj[i].appKey.toUpperCase() + '.INSERT" data-val="true" data-val-checkbox="Global.msgCheckboxRequiredError" tm-lang-attr="true"> ' + TMLanguage('Global.create') + '</label>' +
+                                '<label class="form-check-label"><input type="checkbox" name="Modules[]" class="form-check-input" value="' + obj[i].appKey.toUpperCase() + '.UPDATE" data-val="true" data-val-checkbox="Global.msgCheckboxRequiredError" tm-lang-attr="true"> ' + TMLanguage('Global.edit') + '</label>' +
+                                '<label class="form-check-label"><input type="checkbox" name="Modules[]" class="form-check-input" value="' + obj[i].appKey.toUpperCase() + '.DELETE" data-val="true" data-val-checkbox="Global.msgCheckboxRequiredError" tm-lang-attr="true"> ' + TMLanguage('Global.delete') + '</label>' +
+                                '</div></div></div>';
+                        }
+                        $('#ModulesList').html(html);
+                    }
+                }
+            })
+        })
+        removeBackdrop(ModalCreate);
+        $(formCreate).FormPost({ url: $url, arrayData: 'Modules', done: function () { $($table).bootstrapTable('refresh') } });
+    </script>
+</div>

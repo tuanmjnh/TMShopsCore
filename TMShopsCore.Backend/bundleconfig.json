@@ -1,0 +1,45 @@
+﻿// Configure bundling and minification for the project.
+// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+      "wwwroot/plugins/bootstrap-table/bootstrap-table.css",
+      "wwwroot/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css",
+      "wwwroot/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/jquery.validate.min.js",
+      "wwwroot/js/jquery.validate.unobtrusive.min.js",
+      "wwwroot/js/validator.unobtrusive.parseDynamicContent.js",
+      "wwwroot/js/TMLibrary.js",
+      "wwwroot/js/TMlanguage.js",
+      "wwwroot/js/TMReadImage.js",
+      "wwwroot/js/TMForm.js",
+      "wwwroot/js/TMTag.js",
+      "wwwroot/js/site.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/PartialList.min.js",
+    "inputFiles": [
+      "wwwroot/plugins/bootstrap-table/bootstrap-table.js",
+      "wwwroot/plugins/bootstrap-table/extensions/export/bootstrap-table-export.js",
+      "wwwroot/plugins/bootstrap-table/extensions/export/tableExport.js",
+      "wwwroot/js/PartialList.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

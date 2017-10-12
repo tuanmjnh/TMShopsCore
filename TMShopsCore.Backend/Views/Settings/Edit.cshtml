@@ -1,0 +1,83 @@
+@model TMShopsCore.Models.Settings
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Settings</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="ModuleKey" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ModuleKey" class="form-control" />
+                <span asp-validation-for="ModuleKey" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SubKey" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SubKey" class="form-control" />
+                <span asp-validation-for="SubKey" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Value" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Value" class="form-control" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SubValue" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SubValue" class="form-control" />
+                <span asp-validation-for="SubValue" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Desc" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Desc" class="form-control" />
+                <span asp-validation-for="Desc" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Orders" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Orders" class="form-control" />
+                <span asp-validation-for="Orders" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Flag" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Flag" class="form-control" />
+                <span asp-validation-for="Flag" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Extras" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Extras" class="form-control" />
+                <span asp-validation-for="Extras" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,16 @@
+﻿@using TM.Helper
+@{
+    //ViewData["Title"] = Language.Current.title;
+    //ViewData["ContentTitle"] = Language.Current.title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section TitlePage{
+    <h3 tm-lang="CMS.title"></h3>
+}
+@foreach (var item in (Newtonsoft.Json.Linq.JObject)Language.Global)
+{
+    @(item.Key + ": " + item.Value)  <br />
+}
+
+@ViewBag.Message
+@ViewBag.id

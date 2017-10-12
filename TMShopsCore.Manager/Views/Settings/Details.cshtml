@@ -1,0 +1,67 @@
+@model TMShopsCore.Models.Settings
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Settings</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ModuleKey)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModuleKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubKey)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubValue)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubValue)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Desc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Desc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Orders)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Orders)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Flag)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Flag)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Extras)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Extras)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

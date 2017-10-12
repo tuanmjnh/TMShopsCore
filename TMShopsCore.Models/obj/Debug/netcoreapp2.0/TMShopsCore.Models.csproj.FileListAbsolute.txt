@@ -1,0 +1,11 @@
+D:\Appliations\TMShopsCore\TMShopsCore.Models\bin\Debug\netcoreapp2.0\TMShopsCore.Models.deps.json
+D:\Appliations\TMShopsCore\TMShopsCore.Models\bin\Debug\netcoreapp2.0\TMShopsCore.Models.dll
+D:\Appliations\TMShopsCore\TMShopsCore.Models\bin\Debug\netcoreapp2.0\TMShopsCore.Models.pdb
+D:\Appliations\TMShopsCore\TMShopsCore.Models\bin\Debug\netcoreapp2.0\TMCore.dll
+D:\Appliations\TMShopsCore\TMShopsCore.Models\bin\Debug\netcoreapp2.0\TMCore.pdb
+D:\Appliations\TMShopsCore\TMShopsCore.Models\obj\Debug\netcoreapp2.0\TMShopsCore.Models.csprojResolveAssemblyReference.cache
+D:\Appliations\TMShopsCore\TMShopsCore.Models\obj\Debug\netcoreapp2.0\TMShopsCore.Models.csproj.CoreCompileInputs.cache
+D:\Appliations\TMShopsCore\TMShopsCore.Models\obj\Debug\netcoreapp2.0\TMShopsCore.Models.AssemblyInfoInputs.cache
+D:\Appliations\TMShopsCore\TMShopsCore.Models\obj\Debug\netcoreapp2.0\TMShopsCore.Models.AssemblyInfo.cs
+D:\Appliations\TMShopsCore\TMShopsCore.Models\obj\Debug\netcoreapp2.0\TMShopsCore.Models.dll
+D:\Appliations\TMShopsCore\TMShopsCore.Models\obj\Debug\netcoreapp2.0\TMShopsCore.Models.pdb

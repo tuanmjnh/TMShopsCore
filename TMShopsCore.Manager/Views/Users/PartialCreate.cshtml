@@ -1,0 +1,154 @@
+﻿<div class="modal" id="ModalCreate" tabindex="-1" role="dialog" aria-labelledby="ModalAdd" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalCreateLabel" tm-lang="Users.titleCreate">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="TMAlertModal"></div>
+                <div class="form-horizontal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Global.detailsMain"></h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Username" tm-lang="Users.username"></label>
+                                <div class="col-10">
+                                    <input id="Username" name="Username" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Users.username" title="Users.username" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError" data-val-length-min="4" data-val-length-max="50" data-val-length="Users.msgErrorRange"
+                                           data-val-remote-additionalfields="*.Username" data-val-remote-url="@(TM.Helper.Url.Base+"/api/UsersAPI/UsersNameExistsCheck")" data-val-remote="Users.msgErrorExist">
+                                    @*<small name="FullName" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+                                    <span data-valmsg-for="Username" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Password" tm-lang="Users.password"></label>
+                                <div class="col-10">
+                                    <input id="Password" name="Password" type="password" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Users.password" title="Users.password" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError" data-val-length-min="6" data-val-length="Users.msgErrorPasswordRange">
+                                    <span data-valmsg-for="Password" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="rePassword" tm-lang="Users.rePassword"></label>
+                                <div class="col-10">
+                                    <input id="rePassword" name="rePassword" type="password" class="form-control isTooltip" tm-lang-attr="true" autocomplete="off" Role="presentation"
+                                           placeholder="Users.rePassword" title="Users.rePassword" data-placement="right" data-val="true"
+                                           data-val-equalto-other="*.Password" data-val-equalto="Users.msgErrorPasswordRe" data-val-required="Global.msgInputRequiredError">
+                                    <span data-valmsg-for="rePassword" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="FullName" tm-lang="Users.fullname"></label>
+                                <div class="col-10">
+                                    <input id="FullName" name="FullName" class="form-control isTooltip" tm-lang-attr="true"
+                                           placeholder="Users.fullname" title="Users.fullname" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError">
+                                    <span data-valmsg-for="FullName" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Mobile" tm-lang="Users.mobile"></label>
+                                <div class="col-10">
+                                    <input id="Mobile" name="Mobile" class="form-control isTooltip" tm-lang-attr="true"
+                                           placeholder="Users.mobile" title="Users.mobile" data-placement="right"
+                                           data-val="true" data-val-number="Global.msgInputNumberError">
+                                    <span data-valmsg-for="Mobile" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Email" tm-lang="Users.email"></label>
+                                <div class="col-10">
+                                    <input id="Email" name="Email" class="form-control isTooltip" tm-lang-attr="true"
+                                           placeholder="Users.email" title="Users.email" data-placement="right"
+                                           data-val="true" data-val-email="Global.msgInputEmailError">
+                                    <span data-valmsg-for="Email" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label required" for="Address" tm-lang="Users.address"></label>
+                                <div class="col-10">
+                                    <input id="Address" name="Address" class="form-control isTooltip" tm-lang-attr="true"
+                                           placeholder="Users.address" title="Users.address" data-placement="right"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError">
+                                    <span data-valmsg-for="Address" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-2 col-form-label" for="Orders" tm-lang="Global.orders"></label>
+                                <div class="col-3">
+                                    <input id="Orders" name="Orders" type="number" value="0" class="form-control isTooltip" data-placement="right"
+                                           tm-lang-attr="true" placeholder="Global.orders" title="Global.orders"
+                                           data-val="true" data-val-required="Global.msgInputRequiredError" data-val-number="Global.msgInputNumberError">
+                                    <span data-valmsg-for="Orders" data-valmsg-replace="true" class="text-danger"></span>
+                                </div>
+                                <label class="col-2 col-form-label" for="Flag">Trạng thái</label>
+                                <div class="col-5">
+                                    <div class="btn-group flag" data-toggle="buttons">
+                                        <label class="btn btn-warning">
+                                            <span tm-lang="Global.locked"></span>
+                                            <input type="radio" id="Flag" name="Flag" value="0" autocomplete="off">
+                                        </label>
+                                        <label class="btn btn-warning active">
+                                            <span tm-lang="Global.activity"></span>
+                                            <input type="radio" id="Flag" name="Flag" value="1" autocomplete="off" checked>
+                                        </label>
+                                        <label class="btn btn-warning">
+                                            <span tm-lang="Global.deactive"></span>
+                                            <input type="radio" id="Flag" name="Flag" value="2" autocomplete="off">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer"><label class="text-warning" tm-lang="Global.msgWarningRequired"></label></div>
+                    </div>
+                    <p></p>
+                    <div class="card">
+                        <div class="card-header">
+                            @*<h5 class="card-title pull-left" tm-lang="Users.images"></h5>*@
+                            <label class="btn btn-warning" for="fileInput">
+                                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                                <span tm-lang="Users.images"></span>
+                                <input type="file" id="fileInput" name="fileInput" style="display:none" />
+                            </label>
+                        </div>
+                        <div class="card-block">
+                            <div class="form-group row">
+                                <div class="col-12" tm-read-img="user"><img tm-form="images" /></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title" tm-lang="Global.details"></h5>
+                        </div>
+                        <div class="card-block">
+                            <textarea id="Details" name="Details" class="tinymce"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" tm-lang="Global.cancel">Close</button>
+                <button id="btnCreate" type="submit" class="btn btn-primary" tm-lang="Global.create"></button>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/tinymce/tinymce.min.js"></script>
+    <script src="~/js/site.min.js"></script>
+    <script>
+        $('#fileInput').TMReadImage({ w: 200, h: 200 });
+        removeBackdrop(ModalCreate);
+        $(formCreate).FormPost({ url: $url, done: function () { $($table).bootstrapTable('refresh') } });
+    </script>
+</div>
