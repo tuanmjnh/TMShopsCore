@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TMShopsCore.Models
 {
+    [Table("Settings")]
     public partial class Settings
     {
         public long Id { get; set; }

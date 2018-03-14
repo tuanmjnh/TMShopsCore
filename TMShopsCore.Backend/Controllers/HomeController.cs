@@ -12,14 +12,18 @@ namespace TMShopsCore.Manager.Controllers
     public class HomeController : BaseController
     {
         private readonly Models.TMShopsContext _context;
-        public HomeController(Models.TMShopsContext context) { _context = context; }
+        public HomeController(Models.TMShopsContext context)
+        {
+            _context = context;
+        }
 
         //[Route("Index")]
         public ActionResult Index(string id)
         {
             try
             {
-                var setting = _context.Settings.FirstOrDefault();
+
+                var setting = Common.Settings.Get();
                 var a = TMAppContext.Http.Request;
                 ViewBag.id = id;
             }

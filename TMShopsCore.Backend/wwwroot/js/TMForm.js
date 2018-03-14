@@ -1,44 +1,47 @@
 ﻿//GetForm
-+function ($) {
++ function($) {
     "use strict";
     var DF = {
         url: '',
         data: null,
         resetForm: false,
         TinyMCE: true,
-        success: function () { },
-        done: function () { },
-        fail: function () { },
-        always: function () { }
+        success: function() {},
+        done: function() {},
+        fail: function() {},
+        always: function() {}
     }
-    $.fn.GetForm = function (op) {
+    $.fn.GetForm = function(op) {
         var $this = $(this);
-        $this.off('click').on('click', function (e) {
+        $this.off('click').on('click', function(e) {
             $.extend(DF, op);
             getForm({ element: e, url: DF.url, data: DF.data, form: formEdit, modal: ModalEdit, TinyMCE: DF.TinyMCE, done: DF.done, fail: DF.fail, always: DF.always });
             if (DF.resetForm) $this.trigger('reset');
         })
     };
 }(jQuery);
+
 function getForm(obj) {
     if (obj.element !== undefined) obj.element.preventDefault();
-    $.get(obj.url, obj.data, function (d) {
+    $.get(obj.url, obj.data, function(d) {
         if (typeof obj.success == 'function') obj.success(d);
         $(document).find(obj.form).append(d).find(obj.modal).modal('show');
         for (var i in obj.data)
             $(obj.modal).append('<input type="hidden" name="' + i + '" value="' + obj.data[i] + '" />');
-    }).done(function (d) {
+    }).done(function(d) {
         if (typeof obj.done == 'function') obj.done();
         obj.TinyMCE ? getTinyMCE() : null;
-    }).fail(function (d) {
+    }).fail(function(d) {
         if (typeof obj.fail == 'function') obj.fail();
-    }).always(function (d) {
+    }).always(function(d) {
         if (typeof obj.always == 'function') obj.always();
     })
-}
+};
 
 //FormPost
-+function ($) {
++
+
+function($) {
     "use strict";
     //contentType
     //1. 'application/x-www-form-urlencoded; charset=utf-8' / FormData
@@ -52,15 +55,15 @@ function getForm(obj) {
         arrayData: null,
         data: null,
         resetForm: true,
-        success: function () { },
-        done: function () { },
-        fail: function () { },
-        always: function () { }
+        success: function() {},
+        done: function() {},
+        fail: function() {},
+        always: function() {}
     }
-    $.fn.FormPost = function (op) {
+    $.fn.FormPost = function(op) {
         var $this = $(this);
         $this.attr('action', DF.url);
-        $this.off('submit').on('submit', function (e) {
+        $this.off('submit').on('submit', function(e) {
             $.extend(DF, op);
             e.preventDefault();
             var contentType = false;
@@ -84,7 +87,7 @@ function getForm(obj) {
                     processData: processData,
                     url: DF.id === null ? DF.url : DF.url + '/' + $(DF.id).val(),
                     data: DF.data === null ? dataForm : $.extend({}, DF.data, { __RequestVerificationToken: $('[name="__RequestVerificationToken"]').val() }),
-                    success: function (d) {
+                    success: function(d) {
                         if (d.success) {
                             if (d.success)
                                 if (typeof DF.success == 'function') DF.success(d);
@@ -92,15 +95,14 @@ function getForm(obj) {
                             $('.has-success').removeClass('has-success');
                             $('.form-control-success').removeClass('form-control-success');
                             $($TMAlert).TMAlert({ type: "success", message: TMLanguage(d.success) });
-                        }
-                        else if (d.danger)
+                        } else if (d.danger)
                             $($TMAlert).TMAlert({ type: "danger", message: TMLanguage(d.danger) });
                     }
-                }).done(function (d) {
+                }).done(function(d) {
                     if (typeof DF.done == 'function') DF.done();
-                }).fail(function (d) {
+                }).fail(function(d) {
                     if (typeof DF.fail == 'function') DF.fail();
-                }).always(function (d) {
+                }).always(function(d) {
                     if (typeof DF.always == 'function') DF.always();
                 })
             else
@@ -110,7 +112,9 @@ function getForm(obj) {
 }(jQuery);
 
 //FormGet
-+function ($) {
++
+
+function($) {
     "use strict";
     var DF = {
         url: '',
@@ -118,14 +122,14 @@ function getForm(obj) {
         arrayData: null,
         data: null,
         resetForm: false,
-        success: function () { },
-        done: function () { },
-        fail: function () { },
-        always: function () { }
+        success: function() {},
+        done: function() {},
+        fail: function() {},
+        always: function() {}
     }
-    $.fn.FormGet = function (op) {
+    $.fn.FormGet = function(op) {
         var $this = $(this);
-        $this.off('click').on('click', function (e) {
+        $this.off('click').on('click', function(e) {
             $.extend(DF, op);
             formGet({ element: e, url: DF.url, data: DF.data });
         })
@@ -134,23 +138,25 @@ function getForm(obj) {
 
 function formGet(obj) {
     if (obj.element !== undefined) obj.element.preventDefault();
-    $.get(obj.url, $.extend({}, obj.data, { __RequestVerificationToken: $('[name="__RequestVerificationToken"]').val() }), function (d) {
+    $.get(obj.url, $.extend({}, obj.data, { __RequestVerificationToken: $('[name="__RequestVerificationToken"]').val() }), function(d) {
         if (d.success)
             if (typeof obj.success == 'function') obj.success(d);
             else if (d.danger)
-                $($TMAlert).TMAlert({ type: "danger", message: TMLanguage(d.danger) });
-    }).done(function (d) {
+            $($TMAlert).TMAlert({ type: "danger", message: TMLanguage(d.danger) });
+    }).done(function(d) {
         if (d.data)
             $(document).find(obj.form).TMLoadFormData(d.data.result ? { data: $.extend({}, d.data.result.obj, d.data.result) } : { data: d.data })
         if (typeof obj.done == 'function') obj.done();
-    }).fail(function (d) {
+    }).fail(function(d) {
         if (typeof obj.fail == 'function') obj.fail();
-    }).always(function (d) {
+    }).always(function(d) {
         if (typeof obj.always == 'function') obj.always();
     })
 };
 //TMLoadFormData
-+function ($) {
++
+
+function($) {
     "use strict";
     var DF = {
         attr: 'name',
@@ -162,47 +168,41 @@ function formGet(obj) {
         imgHeight: 200
     };
 
-    $.fn.TMLoadFormData = function (op) {
+    $.fn.TMLoadFormData = function(op) {
         $.extend(DF, op);
-        return $(this).each(function () {
+        return $(this).each(function() {
             if (DF.data == null) return false;
             DF.data = ConvertKeysToLowerCase(DF.data);
             var t = [];
-            $(this).find('[' + DF.attr + ']').each(function () {
+            $(this).find('[' + DF.attr + ']').each(function() {
                 var $this = $(this);
                 var attrVal = $this.attr(DF.attr).toLowerCase();
                 t.push({ tag: $this, type: this.type })
                 if (DF.data.hasOwnProperty(attrVal)) {
-                    if ($this.is('input:hidden')) {//this.type === 'hidden'
+                    if ($this.is('input:hidden')) { //this.type === 'hidden'
                         $this.attr('value', DF.data[attrVal])
-                    }
-                    else if ($this.is('input:radio')) {
+                    } else if ($this.is('input:radio')) {
                         if ($this.val() == DF.data[attrVal]) {
                             $this.attr('checked', 'checked');
                             if ($this.parent().parent().hasClass('btn-group')) $this.parent().addClass('active');
-                        }
-                        else {
+                        } else {
                             $this.removeAttr('checked');
                             if ($this.parent().parent().hasClass('btn-group')) $this.parent().removeClass('active');
                         }
-                    }
-                    else if ($this.is('input:checkbox')) {//$this.is('input:checkbox')
+                    } else if ($this.is('input:checkbox')) { //$this.is('input:checkbox')
                         if ($this.val() == DF.data[attrVal]) {
                             $this.attr('checked', 'checked');
                             if ($this.parent().parent().hasClass('btn-group')) $this.parent().addClass('active');
-                        }
-                        else {
+                        } else {
                             $this.removeAttr('checked');
                             if ($this.parent().parent().hasClass('btn-group')) $this.parent().removeClass('active');
                         }
-                    }
-                    else if ($this.is('textarea')) {
+                    } else if ($this.is('textarea')) {
                         $this.html(DF.data[attrVal])
-                        //if (DF.tinymce) {
-                        //    tinyMCE.activeEditor.setContent($('<div/>').html(DF.data[attrVal]).text());
-                        //}
-                    }
-                    else {
+                            //if (DF.tinymce) {
+                            //    tinyMCE.activeEditor.setContent($('<div/>').html(DF.data[attrVal]).text());
+                            //}
+                    } else {
                         $this.attr('value', DF.data[attrVal])
                     }
                     //$this.removeAttr(DF.attr);
@@ -221,7 +221,7 @@ function formGet(obj) {
                     }
                 }
             });
-            $('[' + DF.attrs + ']').each(function () {
+            $('[' + DF.attrs + ']').each(function() {
                 var $this = $(this);
                 var attrVal = $this.attr(DF.attrs).toLowerCase();
                 if ($this.is('img')) {
@@ -233,8 +233,7 @@ function formGet(obj) {
                     } else {
                         $('#fileInput').TMReadImage({ w: DF.imgWidth, h: DF.imgHeight });
                     }
-                }
-                else if ($this.is('label')) {
+                } else if ($this.is('label')) {
                     var reg = /\[\d\]/g;
                     var regVal = reg.exec(attrVal);
                     if (regVal !== null) {

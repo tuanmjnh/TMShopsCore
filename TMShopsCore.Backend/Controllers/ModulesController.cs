@@ -103,8 +103,9 @@ namespace TMShopsCore.Manager.Controllers
                 return Json(new { danger = TM.Common.Error.Exist });
             try
             {
+                var defval = "";
                 //Data.Id = Guid.NewGuid();
-                Data.Action = "," + Data.Action.ToUpper() + ",";
+                Data.Action = Data.Action != null ? "," + Data.Action.Trim(',') + "," : "";
                 Data.CreatedBy = Common.Auth.getUserAction();
                 Data.CreatedAt = DateTime.Now;
                 Data.UpdatedBy = Common.Auth.getUserAction();
@@ -113,7 +114,7 @@ namespace TMShopsCore.Manager.Controllers
                 _context.Modules.Add(Data);
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateException)
+            catch (Exception)
             {
                 if (DataExistsID(Data.Id))
                     return Json(new { danger = TM.Common.Error.IDExist });
@@ -135,7 +136,7 @@ namespace TMShopsCore.Manager.Controllers
 
             try
             {
-                Data.Action = "," + Data.Action + ",";
+                Data.Action = Data.Action != null ? "," + Data.Action.Trim(',') + "," : null;
                 Data.UpdatedBy = Common.Auth.getUserAction();
                 Data.UpdatedAt = DateTime.Now;
                 _context.Modules.Attach(Data);
@@ -151,7 +152,7 @@ namespace TMShopsCore.Manager.Controllers
 
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception)
             {
                 return Json(new { danger = TM.Common.Error.DB });
             }

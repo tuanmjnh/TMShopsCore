@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "tasks": [{
+            "taskName": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/TMShopsCore.Backend.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "taskName": "run",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "run",
+                "${workspaceFolder}/TMShopsCore.Backend.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "taskName": "bundle",
+            "command": "bundle"
+        },
+        {
+            "taskName": "clean",
+            "command": "clean",
+            "args": [
+                "bundle",
+                "clean"
+            ],
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "watch",
+            "command": "watch",
+            "args": [
+                "bundle",
+                "watch"
+            ],
+            "suppressTaskName": true,
+            "isWatching": true
+        }
+    ]
+}

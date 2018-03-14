@@ -81,8 +81,8 @@ namespace TMShopsCore.Manager.Controllers
 
             return Json(new { success = TM.Common.Success.Get, data = Data, modules = GetModules() });
         }
-        [HttpGet("INSERT")]
-        public IActionResult INSERT()
+        [HttpGet("Insert")]
+        public IActionResult Insert()
         {
             return Json(new { success = TM.Common.Success.Get, modules = GetModules() });
         }

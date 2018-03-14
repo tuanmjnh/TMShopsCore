@@ -29,10 +29,10 @@ namespace TMShopsCore.Backend
         {
             //services.AddMvc();
             //Add service for accessing current HttpContext AND ActionContext
-            services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Microsoft.AspNetCore.Http.HttpContextAccessor>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<Microsoft.AspNetCore.Mvc.Infrastructure.IActionContextAccessor, Microsoft.AspNetCore.Mvc.Infrastructure.ActionContextAccessor>();
             //Add service for accessing current HttpContext
-            services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Microsoft.AspNetCore.Http.HttpContextAccessor>();
+            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             // Add framework services.
             services.AddMvc(
                 config =>
@@ -42,8 +42,7 @@ namespace TMShopsCore.Backend
             //Filters Auth
             services.AddScoped<MiddlewareFilters.Auth>();
             //Service Context
-            var cs = Configuration.GetConnectionString("TMShopsContext");
-            services.AddDbContext<TMShopsCore.Models.TMShopsContext>(options => options.UseSqlServer(cs, b => b.UseRowNumberForPaging()));
+            services.AddDbContext<TMShopsCore.Models.TMShopsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MainConnection"), b => b.UseRowNumberForPaging()));
             services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
             services.AddSession();
         }

@@ -36,7 +36,7 @@ namespace TMShopsCore.Models
         public override int SaveChanges()
         {
             //Gt user Name from  session or other authentication   
-            var Username = Common.Auth.isAuth ? Common.Auth.AuthUser.Username : "";
+            var Username = TMShopsCore.Common.Auth.isAuth ? TMShopsCore.Common.Auth.AuthUser.Username : "";
             //Entity List Added
             var selectedEntityList = ChangeTracker.Entries().Where(x => x.Entity is EntityBase && x.State == EntityState.Added);
             foreach (var entity in selectedEntityList)

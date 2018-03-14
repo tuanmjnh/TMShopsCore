@@ -1,7 +1,7 @@
 ﻿body {
     /*padding-top: 50px;*/
     padding-bottom: 20px;
-    padding-top: 5rem;
+    /*padding-top: 5rem;*/
     font-size: 0.9rem !important;
 }
 
@@ -257,12 +257,15 @@ a.btn {
     border-left-color: #5cb85c;
 }
 /**/
+.navbar {
+    margin-bottom: 1rem;
+}
 .navbar-nav .dropdown-menu {
     margin: 0.5rem 0 0;
 }
 
 .navbar-right .dropdown-menu {
-    left: -92px;
+    left: -160%;
 }
 
 .divider {
